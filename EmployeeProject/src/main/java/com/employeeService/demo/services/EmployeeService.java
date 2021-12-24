@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.employeeService.demo.beans.Employee;
 import com.employeeService.demo.controllers.AddResponse;
 
+@Component
 public class EmployeeService {
 
 	static HashMap<Integer, Employee> employeeIdMap;
@@ -41,7 +44,7 @@ public class EmployeeService {
 
 		Employee employee = null;
 		for (int i : employeeIdMap.keySet()) {
-			if (employeeIdMap.get(i).getEmployee_name().equals(employee)) {
+			if (employeeIdMap.get(i).getEmployee_name().equals(name)) {
 				employee = employeeIdMap.get(i);
 			}
 		}
@@ -51,7 +54,7 @@ public class EmployeeService {
 	public Employee addEmployee(Employee employee) {
 		employee.setId(getMaxId());
 		employeeIdMap.put(employee.getId(), employee);
-		return null;
+		return employee;
 	}
 
 	public Employee updateEmployee(Employee employee) {
