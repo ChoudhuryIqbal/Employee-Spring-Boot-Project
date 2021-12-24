@@ -3,15 +3,29 @@
  */
 package com.employeeService.demo.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * @author Shabab
  *
  */
+@Entity
+@Table(name="Employee")
 public class Employee {
+	
+	@Id
+	@Column(name="id")
 	int id;
+	@Column(name="employee_name")	
 	String employee_name;
+	@Column(name="employee_age")
 	int employee_age;
+	@Column(name="employee_salary")
 	int employee_salary;
+	@Column(name="department")
 	String department;
 
 	public Employee(int id, String employee_name, int employee_age, int employee_salary, String department) {
