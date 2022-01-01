@@ -30,7 +30,7 @@ public class EmployeeController {
 	public ResponseEntity<Employee> getEmployeeById(@PathVariable(value="employeeId") int id) {
 		try {
 			Employee employee=employeeService.getEmployeeById(id);
-			return new ResponseEntity<Employee>(employee,HttpStatus.OK);
+			return new ResponseEntity<Employee>(employee,HttpStatus.FOUND);
 		}
 		
 		catch(Exception e) {
@@ -42,7 +42,7 @@ public class EmployeeController {
 	public ResponseEntity<Employee> getEmployeeByName(@RequestParam (value="name") String employeeName) {
 		try {
 			Employee employee=employeeService.getEmployeeByName(employeeName);
-			return new ResponseEntity<Employee>(employee,HttpStatus.OK);
+			return new ResponseEntity<Employee>(employee,HttpStatus.FOUND);
 		}
 		
 		catch(Exception e) {
@@ -55,7 +55,7 @@ public class EmployeeController {
 	public ResponseEntity<List<Employee>> getEmployees(@RequestParam(value="page") int pageNo,@RequestParam(value="limit") int limitNo) {
 		try {
 			List<Employee> employee=employeeService.getAllEmployees();
-			return new ResponseEntity<List<Employee>>(employee,HttpStatus.OK);
+			return new ResponseEntity<List<Employee>>(employee,HttpStatus.FOUND);
 		}
 		
 		catch(Exception e) {
@@ -70,7 +70,7 @@ public class EmployeeController {
 		
 		try {
 			Employee employeeObject=employeeService.addEmployee(employee);
-			return new ResponseEntity<Employee>(employeeObject,HttpStatus.OK);
+			return new ResponseEntity<Employee>(employeeObject,HttpStatus.CREATED);
 		}
 		
 		catch(Exception e) {
