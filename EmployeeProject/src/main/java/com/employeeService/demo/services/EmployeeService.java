@@ -1,13 +1,10 @@
 package com.employeeService.demo.services;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
 import com.employeeService.demo.beans.Employee;
 import com.employeeService.demo.controllers.AddResponse;
 import com.employeeService.demo.repositories.EmployeeRepository;
@@ -21,7 +18,7 @@ public class EmployeeService {
 	
 	
 	static HashMap<Integer, Employee> employeeIdMap;
-
+/*
 	public EmployeeService() {
 		employeeIdMap = new HashMap<Integer, Employee>();
 		Employee jodu = new Employee(1, "Jodu", 20, 0, "Finance");
@@ -33,7 +30,7 @@ public class EmployeeService {
 		employeeIdMap.put(3, kodu);
 
 	}
-
+*/
 	public List<Employee> getAllEmployees() {
 		//List employees = new ArrayList(employeeIdMap.values());
 		//return employees;
@@ -42,10 +39,19 @@ public class EmployeeService {
 	}
 
 	public Employee getEmployeeById(int id) {
-
+		List <Employee> employees=employeeRepo.findAll();
+		Employee employee=null;
+		for (Employee emp: employees) {
+			if (emp.getId()==id) {
+				employee=emp;
+			}
+			
+		}
+		
+		return employee;
 		//Employee employee = employeeIdMap.get(id);
 		//return employee;
-		return employeeRepo.findById(id).get();
+		//return employeeRepo.findById(id).get();
 
 	}
 
@@ -104,6 +110,10 @@ public class EmployeeService {
 		AddResponse response=new AddResponse("Successfully Delete Records",id);
 		return response;
 		
+	}
+	
+	public void deleteEmployee(Employee employee) {
+		employeeRepo.delete(employee);
 	}
 
 	// for new record to get a new ID
