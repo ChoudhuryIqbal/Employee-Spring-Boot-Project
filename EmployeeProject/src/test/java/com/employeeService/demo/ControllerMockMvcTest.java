@@ -31,7 +31,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import com.employeeService.demo.beans.Employee;
 import com.employeeService.demo.controllers.EmployeeController;
 import com.employeeService.demo.services.EmployeeService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @TestMethodOrder(OrderAnnotation.class)
