@@ -27,7 +27,9 @@ public class Employee {
 	int employee_salary;
 	@Column(name="department")
 	String department;
-
+public Employee() {
+	
+}
 	public Employee(int id, String employee_name, int employee_age, int employee_salary, String department) {
 		this.id = id;
 		this.employee_name = employee_name;
